@@ -1,9 +1,10 @@
 import React from 'react';
+import Page1Connect from './container/Page1Connect';
 
 function App() {
   return (
     <div >
-      {'test'}
+      <Page1Connect/>
     </div>
   );
 }

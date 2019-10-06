@@ -1,0 +1,5 @@
+export const ADD_CATALOG = "ADD_CATALOG";
+export const ADD_TO_BASKET = "ADD_TO_BASKET";
+export const REMOVE_FROM_BASKET = "REMOVE_FROM_BASKET";
+export const SET_APPOINTMENT = "SET_APPOINTMENT";
+export const SET_ADDRESS = "SET_ADDRESS";
