@@ -1,4 +1,4 @@
-import { ADD_TO_BASKET } from '../actionTypes';
+import { ADD_TO_BASKET, REMOVE_FROM_BASKET } from '../actionTypes';
 
 const initialState = {
   prestations: [],
@@ -18,6 +18,22 @@ export default function (state = initialState, action) {
         totalDuration: state.totalDuration + duration,
         totalPrice: state.totalPrice + price,
       };
+    }
+    case REMOVE_FROM_BASKET: {
+      const { duration, price, reference } = action.payload;
+      const index = state.prestations.indexOf(reference);
+
+      if (index >= 0) {
+        const prestations = state.prestations.slice();
+        prestations.splice(index, 1);
+        return {
+          ...state,
+          prestations,
+          totalDuration: state.totalDuration - duration,
+          totalPrice: state.totalPrice - price,
+        };
+      }
+      return state;
     }
     default:
       return state;

@@ -1,11 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import BaskrtConnect from '../container/BasketConnect';
 
 class Page1 extends React.Component {
   componentDidMount() {
     const { catalog, addCatalog } = this.props;
-    if (!catalog) {
+    if (Object.keys(catalog).length === 0) {
       axios.get('https://www.wecasa.fr/api/techtest/universe/', { headers: { Accept: 'application/json' } })
         .then((response) => {
           addCatalog(response.data);
@@ -15,7 +16,7 @@ class Page1 extends React.Component {
   }
 
   render() {
-    const { catalog = {}, addToBasket } = this.props;
+    const { catalog = {}, addToBasket, removeFromBasket } = this.props;
     return (
       <div>
         {Object.keys(catalog).length !== 0 && (
@@ -30,7 +31,7 @@ class Page1 extends React.Component {
                       <li key={prestation.reference}>
                         {`${prestation.title} -> Prix: ${prestation.price}; Duration: ${prestation.duration}`}
                         <button type="button" onClick={() => addToBasket(prestation)}>+</button>
-                        <button type="button">-</button>
+                        <button type="button" onClick={() => removeFromBasket(prestation)}>-</button>
                       </li>
                     ),
                   )}
@@ -39,6 +40,7 @@ class Page1 extends React.Component {
             )}
           </div>
         )}
+        <BaskrtConnect />
       </div>
     );
   }

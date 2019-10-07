@@ -20,6 +20,7 @@ module.exports = {
     ],
     "rules": {
         "react/jsx-filename-extension": 0,
-        "react/jsx-wrap-multilines": 0
+        "react/jsx-wrap-multilines": 0,
+        "class-methods-use-this": 0
     }
 };
