@@ -17,9 +17,10 @@ class Page2 extends React.Component {
 
   handleSubmit() {
     const { address } = this.state;
-    const { setAddress } = this.props;
+    const { setAddress, history } = this.props;
     if (address.length) {
       setAddress(address);
+      history.push('/page3');
     }
   }
 
@@ -36,6 +37,8 @@ class Page2 extends React.Component {
 
 Page2.propTypes = {
   setAddress: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  history: PropTypes.object.isRequired,
 };
 
 export default Page2;

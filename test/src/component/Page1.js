@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import BaskrtConnect from '../container/BasketConnect';
 
 class Page1 extends React.Component {
@@ -16,7 +17,9 @@ class Page1 extends React.Component {
   }
 
   render() {
-    const { catalog = {}, addToBasket, removeFromBasket } = this.props;
+    const {
+      catalog = {}, addToBasket, removeFromBasket, notEmptyBasket,
+    } = this.props;
     return (
       <div>
         {Object.keys(catalog).length !== 0 && (
@@ -40,6 +43,7 @@ class Page1 extends React.Component {
             )}
           </div>
         )}
+        <button type="button"><Link to={() => (notEmptyBasket ? 'page2' : '/')}>Suivant</Link></button>
         <BaskrtConnect />
       </div>
     );
@@ -51,7 +55,13 @@ Page1.propTypes = {
   addToBasket: PropTypes.func.isRequired,
   addCatalog: PropTypes.func.isRequired,
   removeFromBasket: PropTypes.func.isRequired,
-  catalog: PropTypes.object,
+  notEmptyBasket: PropTypes.bool.isRequired,
+  catalog: PropTypes.shape({
+    reference: PropTypes.string,
+    title: PropTypes.string,
+    categories: PropTypes.arrayOf(PropTypes.object),
+  }).isRequired,
+
 };
 
 export default Page1;

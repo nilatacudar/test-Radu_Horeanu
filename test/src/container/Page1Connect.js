@@ -4,6 +4,7 @@ import { addCatalog, addToBasket, removeFromBasket } from '../redux/actions';
 
 const mapStateToProps = (state) => ({
   catalog: state.catalog,
+  notEmptyBasket: state.basket.totalPrice !== 0,
 });
 const mapDispatchToProps = (dispatch) => ({
   addCatalog: (catalog) => dispatch(addCatalog(catalog)),

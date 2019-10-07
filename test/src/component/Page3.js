@@ -24,15 +24,17 @@ class Page3 extends React.Component {
 
   handleSubmit() {
     const { startDate } = this.state;
-    const { address, prestations, setAppointment } = this.props;
+    const {
+      address, prestations, setAppointment, history,
+    } = this.props;
     if (startDate) {
       setAppointment(startDate);
       axios.post('https://www.wecasa.fr/api/techtest/booking/',
         { prestations, appointment: moment(startDate).format(), address },
         { headers: { Accept: 'application/json', 'Content-Type': 'application/json' } })
-
         .then((response) => {
           console.log(response.data);
+          history.push('/page4');
         })
         .catch((error) => (error));
     }
@@ -61,7 +63,9 @@ class Page3 extends React.Component {
 Page3.propTypes = {
   address: PropTypes.string.isRequired,
   setAppointment: PropTypes.func.isRequired,
-  prestations: PropTypes.array.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  history: PropTypes.object.isRequired,
+  prestations: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Page3;
