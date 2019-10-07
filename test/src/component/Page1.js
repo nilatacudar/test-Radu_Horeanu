@@ -50,6 +50,7 @@ class Page1 extends React.Component {
 Page1.propTypes = {
   addToBasket: PropTypes.func.isRequired,
   addCatalog: PropTypes.func.isRequired,
+  removeFromBasket: PropTypes.func.isRequired,
   catalog: PropTypes.object,
 };
 
