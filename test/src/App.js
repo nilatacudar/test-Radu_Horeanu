@@ -3,8 +3,8 @@ import Page1Connect from './container/Page1Connect';
 
 function App() {
   return (
-    <div >
-      <Page1Connect/>
+    <div>
+      <Page1Connect />
     </div>
   );
 }
