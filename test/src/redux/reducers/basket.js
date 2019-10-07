@@ -1,4 +1,6 @@
-import { ADD_TO_BASKET, REMOVE_FROM_BASKET, SET_ADDRESS } from '../actionTypes';
+import {
+  ADD_TO_BASKET, REMOVE_FROM_BASKET, SET_ADDRESS, SET_APPOINTMENT,
+} from '../actionTypes';
 
 const initialState = {
   prestations: [],
@@ -39,6 +41,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         address: action.payload,
+      };
+    case SET_APPOINTMENT:
+      return {
+        ...state,
+        appointment: action.payload,
       };
     default:
       return state;
