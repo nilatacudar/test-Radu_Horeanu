@@ -2,6 +2,7 @@ import React from 'react';
 import Page1Connect from './container/Page1Connect';
 import Page2Connect from './container/Page2Connect';
 import Page3Connect from './container/Page3Connect';
+import Page4Connect from './container/Page4Connect';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Page1Connect />
       <Page2Connect />
       <Page3Connect />
+      <Page4Connect />
     </div>
   );
 }

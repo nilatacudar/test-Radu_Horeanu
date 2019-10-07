@@ -1,5 +1,5 @@
 import {
-  ADD_CATALOG, ADD_TO_BASKET, SET_APPOINTMENT, SET_ADDRESS, REMOVE_FROM_BASKET,
+  ADD_CATALOG, ADD_TO_BASKET, SET_APPOINTMENT, SET_ADDRESS, REMOVE_FROM_BASKET, SET_EMPTY_BASKET,
 } from './actionTypes';
 
 export const addCatalog = (catalog) => ({
@@ -25,4 +25,8 @@ export const setAppointment = (date) => ({
 export const setAddress = (address) => ({
   type: SET_ADDRESS,
   payload: address,
+});
+
+export const setEmptyBasket = () => ({
+  type: SET_EMPTY_BASKET,
 });
